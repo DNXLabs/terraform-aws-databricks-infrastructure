@@ -8,8 +8,3 @@ terraform {
     }
   }
 }
-
-provider "aws" {}
-
-# Use Databricks CLI authentication.
-provider "databricks" {}

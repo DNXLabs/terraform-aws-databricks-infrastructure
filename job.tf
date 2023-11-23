@@ -1,8 +1,3 @@
-variable "job_name" {
-  description = "A name for the job."
-  type        = string
-  default     = "My Job"
-}
 
 resource "databricks_job" "this" {
   name = var.job_name
