@@ -1,5 +1,20 @@
 # terraform-aws-databricks
 
+Terraform module that will create and manage databricks resources from both account and workspace levels, using different providers for each.
+**Account Level Resources:**
+- VPC
+- Root Bucket/Metastor
+- Workspace
+- Users and Groups Management
+
+
+**Workspace Level Resources:**
+- Cluster
+- Job
+- Notebook
+- Catalogs/Schemas/Grants
+
+
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-template/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-template/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-template)](https://github.com/DNXLabs/terraform-aws-template/blob/master/LICENSE)
 
