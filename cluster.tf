@@ -1,16 +1,19 @@
-# Create the cluster with the "smallest" amount
-# of resources allowed.
+# # Create the cluster with the "smallest" amount
+# # of resources allowed.
 data "databricks_node_type" "smallest" {
+  provider = databricks.workspace
   local_disk = true
 }
 
-# Use the latest Databricks Runtime
-# Long Term Support (LTS) version.
+# # Use the latest Databricks Runtime
+# # Long Term Support (LTS) version.
 data "databricks_spark_version" "latest_lts" {
+  provider = databricks.workspace
   long_term_support = true
 }
 
 resource "databricks_cluster" "this" {
+  provider = databricks.workspace
   cluster_name            = var.cluster_name
   node_type_id            = data.databricks_node_type.smallest.id
   spark_version           = data.databricks_spark_version.latest_lts.id

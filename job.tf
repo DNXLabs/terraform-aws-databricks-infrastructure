@@ -1,5 +1,6 @@
 
 resource "databricks_job" "this" {
+  provider = databricks.workspace
   name = var.job_name
   existing_cluster_id = databricks_cluster.this.cluster_id
   notebook_task {
