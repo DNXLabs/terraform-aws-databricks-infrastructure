@@ -6,7 +6,7 @@ variable "notebook_subdirectory" {
 variable "notebook_filename" {
   description = "The notebook's filename."
   type        = string
-  default = "assets/notebook-getting-started.py"
+  default = "modules/terraform-aws-databricks/assets/notebook-getting-started.py"
   
 }
 variable "notebook_language" {
@@ -25,7 +25,7 @@ variable "job_name" {
 variable "cluster_name" {
   description = "A name for the cluster."
   type        = string
-  default = "DNSLabs-terraform-databricks"
+  default = "DNXLabs-terraform-databricks"
 }
 
 variable "cluster_autotermination_minutes" {
@@ -43,7 +43,7 @@ variable "cluster_num_workers" {
 variable "resources_prefix" {
   description = "Databricks root bucket prefix" 
   type = string
-  default = ""
+  default = "everlight-poc"
 }
 variable "tags" {
   type = map
@@ -70,4 +70,41 @@ variable "region" {
   type = string
   description = "AWS Region"
   default = "ap-southeast-2"
+}
+
+variable "aws_account_id" {}
+
+variable "databricks_users" {
+  description = <<EOT
+  List of Databricks users to be added at account-level for Unity Catalog.
+  Enter with square brackets and double quotes
+  e.g ["first.last@domain.com", "second.last@domain.com"]
+  EOT
+  type        = list(string)
+}
+
+variable "databricks_metastore_admins" {
+  description = <<EOT
+  List of Admins to be added at account-level for Unity Catalog.
+  Enter with square brackets and double quotes
+  e.g ["first.admin@domain.com", "second.admin@domain.com"]
+  EOT
+  type        = list(string)
+}
+
+variable "unity_admin_group" {
+  description = "Name of the admin group. This group will be set as the owner of the Unity Catalog metastore"
+  type        = string
+  default = "Admin"
+}
+
+variable "metastore_bucket" {
+  description = "Existing metastore bucket"
+  type = string
+}
+variable "metastore_id" {
+  description = "ID of existing metastore"
+  type = string
+  default = ""
+  
 }
