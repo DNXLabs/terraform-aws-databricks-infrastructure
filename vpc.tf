@@ -1,8 +1,7 @@
 data "aws_availability_zones" "available" {}
 
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "3.2.0"
+  source = "terraform-aws-modules/vpc/aws"
 
   name = var.resources_prefix
   cidr = var.cidr_block
@@ -78,4 +77,3 @@ resource "databricks_mws_networks" "this" {
   subnet_ids         = module.vpc.private_subnets
   vpc_id             = module.vpc.vpc_id
 }
-
