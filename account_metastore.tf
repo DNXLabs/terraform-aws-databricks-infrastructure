@@ -9,7 +9,6 @@ resource "databricks_metastore" "this" {
   force_destroy = true
 }
 
-
 resource "databricks_metastore_data_access" "this" {
   provider     = databricks.mws
   metastore_id = databricks_metastore.this.id
